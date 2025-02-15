@@ -11,8 +11,15 @@
 		CircleGaugeIcon,
 		SearchIcon
 	} from 'lucide-svelte';
+	import { toast } from 'svelte-sonner';
 
 	let { data } = $props();
+
+	$effect(() => {
+		if (data.error) {
+			toast.error(data.error);
+		}
+	});
 </script>
 
 <div
@@ -31,8 +38,8 @@
 				<Input
 					placeholder="Enter city name"
 					name="city"
+					required
 					class="h-12 px-3.5 max-md:mb-1.5 md:mr-2"
-					value={page.url.searchParams.get('city') || ''}
 				/>
 				<p class="mb-4 text-sm text-emerald-200 md:hidden">
 					Privacy forecast: 100% secure with zero chance of leaks.

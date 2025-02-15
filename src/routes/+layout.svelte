@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Toaster } from '$lib/components/ui/sonner';
 	import '../app.css';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
@@ -7,6 +8,7 @@
 	let { children } = $props();
 </script>
 
+<Toaster richColors />
 <div class="relative flex min-h-screen flex-col items-center">
 	<div
 		class="absolute inset-0 opacity-10"
