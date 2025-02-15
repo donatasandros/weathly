@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Toaster as Sonner, type ToasterProps as SonnerProps } from "svelte-sonner";
-	import { mode } from "mode-watcher";
+	import { Toaster as Sonner, type ToasterProps as SonnerProps } from 'svelte-sonner';
+	import { mode } from 'mode-watcher';
 
 	let restProps: SonnerProps = $props();
 </script>
@@ -10,11 +10,12 @@
 	class="toaster group"
 	toastOptions={{
 		classes: {
-			toast: "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-			description: "group-[.toast]:text-muted-foreground",
-			actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
-			cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
-		},
+			toast:
+				'group toast group-[.toaster]:bg-white group-[.toaster]:text-neutral-900 group-[.toaster]:border group-[.toaster]:border-gray-300 group-[.toaster]:shadow-lg',
+			description: 'group-[.toast]:text-neutral-600',
+			actionButton: 'group-[.toast]:bg-emerald-600 group-[.toast]:text-white',
+			cancelButton: 'group-[.toast]:bg-gray-50 group-[.toast]:text-neutral-900'
+		}
 	}}
 	{...restProps}
 />

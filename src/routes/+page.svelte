@@ -12,6 +12,8 @@
 		SearchIcon
 	} from 'lucide-svelte';
 	import { toast } from 'svelte-sonner';
+	import * as Tooltip from '$lib/components/ui/tooltip';
+	import { format, formatDistanceStrict } from 'date-fns';
 
 	let { data } = $props();
 
@@ -60,15 +62,22 @@
 					<h2 class="mb-1 text-2xl font-semibold text-neutral-900">
 						{data.weather.city}, {data.weather.country}
 					</h2>
-					<p class="mb-6 text-neutral-600">
-						{new Date(data.weather.dt * 1000).toLocaleString('en-US', {
-							month: 'short',
-							day: 'numeric',
-							hour: 'numeric',
-							minute: 'numeric',
-							hour12: true
-						})}
-					</p>
+					<Tooltip.Provider>
+						<Tooltip.Root>
+							<Tooltip.Trigger class="mb-6 cursor-default "
+								><p class="text-neutral-600">
+									Updated{' '}{formatDistanceStrict(new Date(data.weather.dt * 1000), new Date(), {
+										addSuffix: true
+									}).toLowerCase()}
+								</p></Tooltip.Trigger
+							>
+							<Tooltip.Content side="bottom">
+								<p>
+									{format(new Date(data.weather.dt * 1000), 'MMMM d, yyyy h:mm a')}
+								</p>
+							</Tooltip.Content>
+						</Tooltip.Root>
+					</Tooltip.Provider>
 				</div>
 				<div class="flex flex-wrap items-center gap-5">
 					<div
