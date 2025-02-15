@@ -19,19 +19,19 @@ export const load = async (event) => {
 	const city = event.url.searchParams.get('city');
 
 	if (city?.trim()) {
-		const { success } = await rateLimit.search.limit('global');
-
-		if (!success) {
-			return {
-				error: 'API rate limit exceeded. Please try again later.'
-			};
-		}
-
 		const cachedData = await redis.get(`weather:${city}`);
 
 		if (cachedData) {
 			return {
 				weather: cachedData as Weather
+			};
+		}
+
+		const { success } = await rateLimit.search.limit('global');
+
+		if (!success) {
+			return {
+				error: 'API rate limit exceeded. Please try again later.'
 			};
 		}
 
