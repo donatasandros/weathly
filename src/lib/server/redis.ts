@@ -12,6 +12,6 @@ export const rateLimit = {
 		redis,
 		analytics: true,
 		prefix: 'ratelimit:search',
-		limiter: Ratelimit.slidingWindow(10, '60s')
+		limiter: Ratelimit.slidingWindow(50, '60s')
 	})
 };
