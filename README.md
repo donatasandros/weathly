@@ -1,38 +1,44 @@
-# sv
+# Weathly
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A sleek and simple weather app built with SvelteKit. Enter a city name and get real-time weather updates instantly.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- ⚡ Fast and lightweight.
+- 🎨 Clean and modern UI.
+- 🚀 Rate limiting using [Upstash Redis](https://upstash.com).
+- ⚡ Caching using [Upstash Redis](https://upstash.com).
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Getting Started
 
-# create a new project in my-app
-npx sv create my-app
+### 1️⃣ Clone the repository
+
+```sh
+git clone https://github.com/donatasandros/weathly.git
 ```
 
-## Developing
+### 2️⃣ Install dependencies
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```sh
+bun install
 ```
 
-## Building
+### 3️⃣ Set up environment variables
 
-To create a production version of your app:
+Create a .env file and add your API keys:
 
-```bash
-npm run build
+```sh
+OPEN_WEATHER_API_KEY=
+UPSTASH_REDIS_URL=
+UPSTASH_REDIS_TOKEN=
 ```
 
-You can preview the production build with `npm run preview`.
+### 4️⃣ Run the development server
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+bun run dev
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
