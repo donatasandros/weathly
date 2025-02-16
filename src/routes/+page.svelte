@@ -14,6 +14,7 @@
 	import { toast } from 'svelte-sonner';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { format, formatDistanceStrict } from 'date-fns';
+	import { cn } from '$lib/tw-utils';
 
 	let { data } = $props();
 
@@ -35,7 +36,10 @@
 </svelte:head>
 
 <div
-	class="z-10 w-full bg-gradient-to-b from-emerald-800 to-emerald-900 px-4 py-16 pb-24 md:rounded-3xl md:p-24 md:pb-48"
+	class={cn(
+		'z-10 w-full bg-gradient-to-b from-emerald-800 to-emerald-900 px-4 py-16 pb-24 md:rounded-3xl md:p-24 md:pb-48',
+		!data.weather && 'min-h-screen'
+	)}
 >
 	<header class="mx-auto max-w-3xl">
 		<div class="mb-4 text-center text-4xl font-semibold md:mb-6 md:text-7xl">
@@ -65,7 +69,7 @@
 	</header>
 </div>
 {#if data.weather !== undefined}
-	<div class="-mt-8 px-4 md:-mt-24">
+	<div class="-mt-8 px-4 max-md:mb-16 md:-mt-24">
 		<div class="mx-auto max-w-[800px] rounded-xl bg-white p-8 shadow-2xl">
 			{#if data.weather}
 				<div>
