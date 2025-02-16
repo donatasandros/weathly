@@ -19,7 +19,7 @@ export const load = async (event) => {
 	const city = event.url.searchParams.get('city');
 
 	if (city?.trim()) {
-		const cachedData = await redis.get(`weather:${city}`);
+		const cachedData = await redis.get(`weather:${city.toLowerCase()}`);
 
 		if (cachedData) {
 			return {
@@ -61,7 +61,7 @@ export const load = async (event) => {
 			clouds: weatherData.clouds.all
 		} as Weather;
 
-		await redis.set(`weather:${city}`, JSON.stringify(weatherValues), {
+		await redis.set(`weather:${city.toLowerCase()}`, JSON.stringify(weatherValues), {
 			ex: 60 * 10 // 10 minutes
 		});
 
