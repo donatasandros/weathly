@@ -2,6 +2,8 @@
 
 A sleek and simple weather app built with SvelteKit. Enter a city name and get real-time weather updates instantly.
 
+![Project thumbnail](https://github.com/donatasandros/weathly/blob/main/static/thumbnail.jpg)
+
 ## Features
 
 - ⚡ Fast and lightweight.
