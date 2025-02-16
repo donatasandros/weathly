@@ -38,7 +38,7 @@
 <div
 	class={cn(
 		'z-10 w-full bg-gradient-to-b from-emerald-800 to-emerald-900 px-4 py-16 pb-24 md:rounded-3xl md:p-24 md:pb-48',
-		!data.weather && 'min-h-screen'
+		!data.weather && 'max-md:min-h-screen'
 	)}
 >
 	<header class="mx-auto max-w-3xl">
