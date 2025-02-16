@@ -24,6 +24,16 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{data.weather?.city ? `Weather in ${data.weather.city} - Weathly` : 'Weathly'}</title>
+	<meta
+		name="description"
+		content={data.weather
+			? `Get the latest weather updates for ${data.weather.city}, ${data.weather.country}. Accurate and real-time forecasts - fast, reliable, and easy to use.`
+			: 'Simple, accurate, and real-time weather updates for any city. Just enter a location and get instant forecasts - fast, reliable, and easy to use.'}
+	/>
+</svelte:head>
+
 <div
 	class="z-10 w-full bg-gradient-to-b from-emerald-800 to-emerald-900 px-4 py-16 pb-24 md:rounded-3xl md:p-24 md:pb-48"
 >
@@ -33,7 +43,7 @@
 		</div>
 		<p class="mb-10 text-center text-lg text-emerald-200 md:mb-12 md:text-xl">
 			Simple, accurate, and real-time weather updates for any city. Just enter a location and get
-			instant forecasts—fast, reliable, and easy to use.
+			instant forecasts - fast, reliable, and easy to use.
 		</p>
 		<div class="mx-auto flex max-w-[480px] flex-col items-start gap-1.5">
 			<form class="flex w-full justify-center max-md:flex-col md:items-center">
